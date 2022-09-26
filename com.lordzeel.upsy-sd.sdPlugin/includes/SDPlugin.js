@@ -30,7 +30,7 @@ class SDPlugin {
 
 	didReceiveSettings(event, data) {
 		if (this.actions[data.context])
-			this.actions[data.context].settings = data.payload.settings;
+			this.actions[data.context].updateSettings(data.payload.settings);
 	}
 
 	willAppear(event, data) {
@@ -40,7 +40,8 @@ class SDPlugin {
 			new Actions[actionType](data.context, data.payload, this);
 	}
 
-	willDisappear(event, data) {
+	async willDisappear(event, data) {
+		await this.actions[data.context]?.destructor();
 		delete this.actions[data.context];
 	}
 
