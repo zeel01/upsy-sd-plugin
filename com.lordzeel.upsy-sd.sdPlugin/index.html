@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>com.lordzeel.upsy-sd</title>
+	<meta charset="utf-8" />
+
+	<script src="includes/Action.js"></script>
+	<script src="includes/upsyActions.js"></script>
+	<script src="includes/SDPlugin.js"></script>
+	<script src="includes/UpsySD.js"></script>
+</head>
+
+<body>
+	<script>
+		let upsySD;
+
+		function connectElgatoStreamDeckSocket(inPort, inPluginUUID, inRegisterEvent, inInfo) {
+			upsySD = new UpsySD(inPort, inPluginUUID, inRegisterEvent, inInfo, "192.168.1.45");
+		}
+	</script>
+</body>
