@@ -1,7 +1,7 @@
 {
 	"Actions": [
 		{
-			"Icon": "actionIcon", 
+			"Icon": "icons/arrows-to-line", 
 			"Name": "Set Heigh", 
 			"SupportedInMultiActions": true,
 			"PropertyInspectorPath": "inspectors/setHeight.html",
@@ -9,19 +9,14 @@
 			"UUID": "com.lordzeel.upsy-sd.setHeight",
 			"States": [
 				{
-					"Image": "actionIcon",
+					"Image": "icons/arrows-to-line",
 					"ShowTitle": false,
 					"Name": "Ready"
-				},
-				{
-					"Image": "actionIcon",
-					"ShowTitle": false,
-					"Name": "Running"
 				}
 			]
 		},
 		{
-			"Icon": "actionIcon", 
+			"Icon": "icons/arrow-up-wide-short", 
 			"Name": "Go To Preset", 
 			"SupportedInMultiActions": true,
 			"PropertyInspectorPath": "inspectors/goPreset.html",
@@ -29,27 +24,22 @@
 			"UUID": "com.lordzeel.upsy-sd.goPreset",
 			"States": [
 				{
-					"Image": "actionIcon",
+					"Image": "icons/arrow-up-wide-short",
 					"ShowTitle": false,
 					"Name": "Ready"
-				},
-				{
-					"Image": "actionIcon",
-					"ShowTitle": false,
-					"Name": "Running"
 				}
 			]
 		},
 		{
-			"Icon": "actionIcon", 
+			"Icon": "icons/ruler", 
 			"Name": "Height Display", 
-			"SupportedInMultiActions": false,
-			"PropertyInspectorPath": "inspectors/showHeight.html",
+			"SupportedInMultiActions": true,
+			"PropertyInspectorPath": "inspectors/getHeight.html",
 			"Tooltip": "Show the current height of the desk on the screen", 
 			"UUID": "com.lordzeel.upsy-sd.showHeight",
 			"States": [
 				{
-					"Image": "actionIcon",
+					"Image": "icons/ruler",
 					"ShowTitle": false,
 					"Name": "Display"
 				}
@@ -62,21 +52,20 @@
 	"PropertyInspectorPath": "inspector.html",
 	"Description": "Control your standing desk via an Upsy Desky desk controller.", 
 	"Name": "UD Deck", 
-	"Icon": "zeel", 
+	"Icon": "icons/table-height", 
 	"URL": "", 
 	"Version": "0.0.1",
 	"OS": [
 		{
-				"Platform": "mac", 
-				"MinimumVersion" : "10.11"
+			"Platform": "mac", 
+			"MinimumVersion" : "10.11"
 		},
 		{
-				"Platform": "windows", 
-				"MinimumVersion" : "10"
+			"Platform": "windows", 
+			"MinimumVersion" : "10"
 		}
 	],
-	"Software": 
-		{
-				"MinimumVersion" : "4.1"
-		}
+	"Software": {
+		"MinimumVersion" : "4.1"
+	}
 }
