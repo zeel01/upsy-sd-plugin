@@ -1,0 +1,82 @@
+{
+	"Actions": [
+		{
+			"Icon": "actionIcon", 
+			"Name": "Set Heigh", 
+			"SupportedInMultiActions": true,
+			"PropertyInspectorPath": "inspectors/setHeight.html",
+			"Tooltip": "Set the height of the desk to a specific value.", 
+			"UUID": "com.lordzeel.upsy-sd.setHeight",
+			"States": [
+				{
+					"Image": "actionIcon",
+					"ShowTitle": false,
+					"Name": "Ready"
+				},
+				{
+					"Image": "actionIcon",
+					"ShowTitle": false,
+					"Name": "Running"
+				}
+			]
+		},
+		{
+			"Icon": "actionIcon", 
+			"Name": "Go To Preset", 
+			"SupportedInMultiActions": true,
+			"PropertyInspectorPath": "inspectors/goPreset.html",
+			"Tooltip": "Set the desk height to one of the stored presets", 
+			"UUID": "com.lordzeel.upsy-sd.goPreset",
+			"States": [
+				{
+					"Image": "actionIcon",
+					"ShowTitle": false,
+					"Name": "Ready"
+				},
+				{
+					"Image": "actionIcon",
+					"ShowTitle": false,
+					"Name": "Running"
+				}
+			]
+		},
+		{
+			"Icon": "actionIcon", 
+			"Name": "Height Display", 
+			"SupportedInMultiActions": false,
+			"PropertyInspectorPath": "inspectors/showHeight.html",
+			"Tooltip": "Show the current height of the desk on the screen", 
+			"UUID": "com.lordzeel.upsy-sd.showHeight",
+			"States": [
+				{
+					"Image": "actionIcon",
+					"ShowTitle": false,
+					"Name": "Display"
+				}
+			]
+		}
+	], 
+	"SDKVersion": 2,
+	"Author": "zeel", 
+	"CodePath": "index.html",
+	"PropertyInspectorPath": "inspector.html",
+	"Description": "Control your standing desk via an Upsy Desky desk controller.", 
+	"Name": "UD Deck", 
+	"Icon": "zeel", 
+	"URL": "", 
+	"Version": "0.0.1",
+	"OS": [
+		{
+				"Platform": "mac", 
+				"MinimumVersion" : "10.11"
+		},
+		{
+				"Platform": "windows", 
+				"MinimumVersion" : "10"
+		}
+	],
+	"Software": 
+		{
+				"MinimumVersion" : "4.1"
+		}
+}
