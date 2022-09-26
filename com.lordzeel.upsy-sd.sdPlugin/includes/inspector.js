@@ -96,15 +96,29 @@ class PropertyInspector {
 	}
 
 	addEventListeners() {
-		document.querySelectorAll("input").forEach(input => {
-			input.addEventListener("change", event => {
+		const inputs = document.querySelectorAll("input");
+		inputs.forEach(input => {
+			input.addEventListener("change", async event => {
 				const property = event.currentTarget.name;
 				const value = event.currentTarget.value;
 
-				console.log(property, value);
-
-				this.setSettings({ [property]: value });
+				this.settings[property] = value;
+				await this.setSettings(this.settings);
 			});
+		});
+
+		window.addEventListener("unload", async event => {
+			inputs.forEach(input => {
+				const property = input.name;
+				const value = input.value;
+
+				if (input.type == "radio" && !input.checked) return;
+
+				this.settings[property] = value;
+			});
+			
+			await this.setSettings(this.settings);
+			await this.websocket.close();
 		});
 	}
 }
