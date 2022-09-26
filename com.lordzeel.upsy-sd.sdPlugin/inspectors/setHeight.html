@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>com.lordzeel.upsy-sd</title>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" href="../sdpi.css">
+	<script src="../includes/inspector.js"></script>
+</head>
+
+<body>
+	<div class="sdpi-wrapper hidden">
+		<div class="sdpi-item">
+			<div class="sdpi-item-label">Height</div>
+			<input class="sdpi-item-value" 
+				id="height"
+				name="height"
+				value=""
+				placeholder="Height in inches"
+				pattern="[0-9\.]+" required>
+		</div>
+	<div>
+
+	<script>
+		function connectElgatoStreamDeckSocket(inPort, inPropertyInspectorUUID, inRegisterEvent, inInfo, inActionInfo) {
+			new PropertyInspector("setHeight", inPort, inPropertyInspectorUUID, inRegisterEvent, inInfo, inActionInfo);
+		}
+	</script>
+</body>

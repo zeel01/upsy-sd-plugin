@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>com.lordzeel.upsy-sd</title>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" href="../sdpi.css">
+	<script src="../includes/inspector.js"></script>
+</head>
+
+<body>
+	<div class="sdpi-wrapper hidden">
+		<div type="radio" class="sdpi-item" id="select-preset">
+			<div class="sdpi-item-label">Select Preset</div>
+			<div class="sdpi-item-value ">
+				<span class="sdpi-item-child">
+					<input id="pre1" type="radio" value="1" name="preset">
+					<label for="pre1" class="sdpi-item-label"><span></span>1</label>
+				</span>
+				<span class="sdpi-item-child">
+					<input id="pre2" type="radio" value="2" name="preset">
+					<label for="pre2" class="sdpi-item-label"><span></span>2</label>
+				</span>
+				<span class="sdpi-item-child">
+					<input id="pre3" type="radio" value="3" name="preset">
+					<label for="pre3" class="sdpi-item-label"><span></span>3</label>
+				</span>
+				<span class="sdpi-item-child">
+					<input id="pre4" type="radio" value="4" name="preset">
+					<label for="pre4" class="sdpi-item-label"><span></span>4</label>
+				</span>
+			</div>
+		</div>
+	<div>
+
+	<script>
+		function connectElgatoStreamDeckSocket(inPort, inPropertyInspectorUUID, inRegisterEvent, inInfo, inActionInfo) {
+			new PropertyInspector("goPreset", inPort, inPropertyInspectorUUID, inRegisterEvent, inInfo, inActionInfo);
+		}
+	</script>
+</body>
