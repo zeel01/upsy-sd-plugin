@@ -7,8 +7,12 @@ const UpsyAction = Base => class extends Base {
 		return `${this.plugin.scheme}://${this.host}`;
 	}
 
-	get fetchOptions() {
+	get fetchOptionsPOST() {
 		return { method: "POST" }
+	}
+
+	get fetchOptionsGET() {
+		return { method: "GET" }
 	}
 
 	getURL() {
@@ -17,7 +21,7 @@ const UpsyAction = Base => class extends Base {
 
 	async fetch(url) {
 		try {
-			const response = await fetch(url, this.fetchOptions);
+			const response = await fetch(url, this.fetchOptionsPOST);
 			if (response.ok) this.showOk();
 			else throw new Error(response.statusText);
 		}
@@ -26,8 +30,58 @@ const UpsyAction = Base => class extends Base {
 			this.showAlert();
 		}
 	}
+
+  async fetchGet(url) {
+    try {
+      const response = await fetch(url, this.fetchOptionsGET);
+
+      if (response.ok) {
+        const data = await response.json();
+        this.showOk();
+        return data;
+      } else {
+        throw new Error(response.statusText);
+      }
+    } catch (error) {
+      console.error(error);
+      this.showAlert();
+      return null; 
+    }
+  }
 }
 
+class SetRelativeHeightAction extends UpsyAction(ActiveAction) {
+	constructor(uniqueValue, payload, plugin) {
+		super(uniqueValue, payload, plugin);
+
+		this.height = 0.0;
+  }
+
+	async execute(type) {
+    var currHeight = await this.getCurrentHeight();
+    console.log(currHeight);
+    console.log( +(Math.round(Number(currHeight) + Number(this.settings.height) + "e+1") + "e-1") );
+    if (type == "down") return await this.commandHeight(Number(currHeight) + Number(this.settings.height));
+	}
+
+	getURL(height) {
+		return `${this.baseURL}/number/target_desk_height/set?value=${height}`;
+	}
+
+	async getCurrentHeight() {
+    const CURRENT_HEIGHT_URL = `${this.baseURL}/sensor/desk_height`;
+    const data = await this.fetchGet(CURRENT_HEIGHT_URL);
+    if (data.id =="sensor-desk_height") {
+        this.height = data.value;
+    }
+
+		return this.height;
+  }
+
+	async commandHeight(height) {
+		await this.fetch(this.getURL(height));
+	}
+}
 
 class SetHeightAction extends UpsyAction(ActiveAction) {
 	async execute(type) {
@@ -116,5 +170,6 @@ class ShowHeightAction extends UpsyAction(PassiveAction) {
 const Actions = {
 	setheight: SetHeightAction,
 	gopreset: PresetAction,
-	showheight: ShowHeightAction
+	showheight: ShowHeightAction,
+	setrelativeheight: SetRelativeHeightAction
 }

@@ -16,6 +16,21 @@
 			]
 		},
 		{
+			"Icon": "icons/arrows-to-line", 
+			"Name": "Set Relative Height", 
+			"SupportedInMultiActions": true,
+			"PropertyInspectorPath": "inspectors/setRelativeHeight.html",
+			"Tooltip": "Set the height of the desk to a relative value.", 
+			"UUID": "com.lordzeel.upsy-sd.setRelativeHeight",
+			"States": [
+				{
+					"Image": "icons/arrows-to-line",
+					"ShowTitle": false,
+					"Name": "Ready"
+				}
+			]
+		},
+		{
 			"Icon": "icons/arrow-up-wide-short", 
 			"Name": "Go To Preset", 
 			"SupportedInMultiActions": true,
