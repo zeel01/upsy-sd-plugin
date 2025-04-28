@@ -71,7 +71,7 @@ class ShowHeightAction extends UpsyAction(PassiveAction) {
 	}
 
 	get heightString() {
-		return `${this.height} ${this.units}`;
+		return `${this.height.toFixed(1)} ${this.units}`;
 	}
 
 	get prefix() {
