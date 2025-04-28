@@ -2,7 +2,7 @@
 	"Actions": [
 		{
 			"Icon": "icons/arrows-to-line", 
-			"Name": "Set Heigh", 
+			"Name": "Set Height", 
 			"SupportedInMultiActions": true,
 			"PropertyInspectorPath": "inspectors/setHeight.html",
 			"Tooltip": "Set the height of the desk to a specific value.", 
